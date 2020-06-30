@@ -11,8 +11,10 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: #7a419b;
-  background: linear-gradient(135deg, #7c1599 0%, #921099 48%, #7e4ae8 100%);
+  display: flex;
+  background: #222831;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #222831 0%, #30475e 48%, #222831 100%);
   background-size: cover;
 }
 .container {
@@ -27,6 +29,8 @@ body {
   border: 5px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   position: absolute;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #30475e;
   font-size: 0;
   overflow: hidden;
 }
@@ -59,7 +63,7 @@ body {
 }
 
 .player__button:focus {
-  border-color: #ffc600;
+  border-color: #c1a57b;
 }
 
 .player__slider {
@@ -103,7 +107,7 @@ body {
 
 .progress__filled {
   width: 50%;
-  background: #ffc600;
+  background: #c1a57b;
   flex: 0;
   flex-basis: 50%;
 }
@@ -135,7 +139,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 15px;
   width: 15px;
   border-radius: 50px;
-  background: #ffc600;
+  background: #c1a57b;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -3.5px;
@@ -161,6 +165,6 @@ input[type="range"]::-moz-range-thumb {
   height: 15px;
   width: 15px;
   border-radius: 50px;
-  background: #ffc600;
+  background: #c1a57b;
   cursor: pointer;
 }

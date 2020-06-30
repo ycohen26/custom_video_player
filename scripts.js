@@ -11,6 +11,7 @@ const ctx = canvas.getContext("2d");
 const redEffectButton = document.querySelector(".redEffectButton");
 const rgbSplitButton = document.querySelector(".rgbSplitButton");
 
+
 /* Build out functions */
 function togglePlay() {
   const method = video.paused ? "play" : "pause";
@@ -87,6 +88,7 @@ video.addEventListener("pause", updateButton);
 video.addEventListener("timeupdate", handleProgress);
 video.addEventListener("canplay", paintToCanvas);
 
+
 toggle.addEventListener("click", togglePlay);
 skipButtons.forEach((button) => button.addEventListener("click", skip));
 ranges.forEach((range) => range.addEventListener("change", handleRangeUpdate));
@@ -95,6 +97,8 @@ let redEffectOn = false;
 redEffectButton.addEventListener("click", () => (redEffectOn = !redEffectOn));
 let rgbSplitOn = false;
 rgbSplitButton.addEventListener("click", () => (rgbSplitOn = !rgbSplitOn));
+
+
 
 let mousedown = false;
 progress.addEventListener("click", scrub);
