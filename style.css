@@ -11,9 +11,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  display: flex;
   background: #222831;
-  min-height: 100vh;
   background: linear-gradient(135deg, #222831 0%, #30475e 48%, #222831 100%);
   background-size: cover;
 }
@@ -28,7 +26,7 @@ body {
   max-width: 750px;
   border: 5px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  position: absolute;
+  position: relative;
   border-radius: 15px;
   box-shadow: 0 0 20px #30475e;
   font-size: 0;
