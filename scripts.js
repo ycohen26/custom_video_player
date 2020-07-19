@@ -10,7 +10,28 @@ const canvas = document.querySelector(".video");
 const ctx = canvas.getContext("2d");
 const redEffectButton = document.querySelector(".redEffectButton");
 const rgbSplitButton = document.querySelector(".rgbSplitButton");
-
+const uploadButton = document.querySelector("#upload__button");
+const uploadWidget = cloudinary.createUploadWidget(
+  {
+    cloudName: "thernandez84",
+    tags: ["video"],
+    resourceType: "video",
+    multiple: false,
+    clientAllowedFormats: ["mp4", "mov"],
+    uploadPreset: "w8a2ulrh",
+  },
+  function (error, result) {
+    if (!error && result && result.event === "success") {
+      console.log("Done! Here is the image info: ", result.info.url);
+      video.removeEventListener("canplay", paintToCanvas);
+      video.crossOrigin = "anonymous";
+      video.src = result.info.url;
+      video.addEventListener("canplay", paintToCanvas);
+      console.log(result);
+      this.close();
+    }
+  }
+);
 
 /* Build out functions */
 function togglePlay() {
@@ -88,7 +109,6 @@ video.addEventListener("pause", updateButton);
 video.addEventListener("timeupdate", handleProgress);
 video.addEventListener("canplay", paintToCanvas);
 
-
 toggle.addEventListener("click", togglePlay);
 skipButtons.forEach((button) => button.addEventListener("click", skip));
 ranges.forEach((range) => range.addEventListener("change", handleRangeUpdate));
@@ -97,8 +117,13 @@ let redEffectOn = false;
 redEffectButton.addEventListener("click", () => (redEffectOn = !redEffectOn));
 let rgbSplitOn = false;
 rgbSplitButton.addEventListener("click", () => (rgbSplitOn = !rgbSplitOn));
-
-
+uploadButton.addEventListener(
+  "click",
+  () => {
+    uploadWidget.open();
+  },
+  false
+);
 
 let mousedown = false;
 progress.addEventListener("click", scrub);
